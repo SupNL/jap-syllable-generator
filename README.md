@@ -88,6 +88,28 @@ Arguments: -y or --youon
 
 Add syllables to represent the yōon (kana that is combined with ゃ, ゅ and ょ), for example, kya (きゃ). If dakuten and handakuten are enabled, also include for those.
 
+## Display syllable literally
+
+Arguments: -l or --literal
+
+Instead of representing syllables by their phonetics, it is treated literally the way it should be written. For example, ぢ is commonly referenced as 'ji', but it falls under the 'd' category, so it gets to be represented as 'di' instead. The same for ふ, which is pronounced as 'fu', but falls under the 'h' category. The list of affected syllables:
+
+* shi -> si
+* chi -> ti
+* tsu -> tu
+*  fu -> hu
+* sha -> sya
+* shu -> syu
+* sho -> syo
+* cha -> tya
+* chu -> tyu
+* cho -> tyo
+*  ja -> zya
+*  ju -> zyu
+*  jo -> zyo
+*  ji -> zi | di
+*  zu -> zu | du
+
 ## Word size
 
 Arguments: -n SIZE or --size SIZE, where SIZE is the number
