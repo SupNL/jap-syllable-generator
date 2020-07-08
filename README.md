@@ -11,7 +11,11 @@
 
 argparse can be installed using pip:
 
+    // for windows users
     pip install argparse
+
+    // for linux users
+    pip3 install argparse
 
 ---
 
