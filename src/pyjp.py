@@ -7,11 +7,19 @@ import msvcrt as m
 
 wiwe_syllables = ["wi", "we"]
 
+literal_dakuten_handakuten_syllables = [
+    "ga", "gi", "gu", "ge", "go",
+    "za", "zi", "zu", "ze", "zo",
+    "da", "di", "du", "de", "do",
+    "ba", "bi", "bu", "be", "bo",
+    "pa", "pi", "pu", "pe", "po"
+]
+
 dakuten_handakuten_syllables = [
     "ga", "gi", "gu", "ge", "go",
     "za", "ji", "zu", "ze", "zo",
     "da", "ji", "zu", "de", "do",
-    "da", "ji", "zu", "de", "do",
+    "ba", "bi", "bu", "be", "bo",
     "pa", "pi", "pu", "pe", "po"
 ]
 
@@ -26,11 +34,28 @@ sokuon_dakuten_handakuten_syllables = [
     "ppa", "ppi", "ppu", "ppe", "ppo"
 ]
 
+literal_combination_dakuten_handakuten_syllables = [
+    "gya", "gyu", "gyo",
+    "zya", "zyu", "zyo",
+    "bya", "byu", "byo",
+    "pya", "pyu", "pyo"
+]
+
 combination_dakuten_handakuten_syllables = [
     "gya", "gyu", "gyo",
     "ja",  "ju",  "jo",
     "bya", "byu", "byo",
     "pya", "pyu", "pyo"
+]
+
+literal_combination_syllables = [
+    "kya", "kyu", "kyo",
+    "sya", "syu", "syo",
+    "tya", "tyu", "tyo",
+    "nya", "nyu", "nyo",
+    "hya", "hyu", "hyo",
+    "mya", "myu", "myo",
+    "rya", "ryu", "ryo"
 ]
 
 combination_syllables = [
@@ -43,7 +68,7 @@ combination_syllables = [
     "rya", "ryu", "ryo"
 ]
 
-syllables = [
+literal_syllables = [
     "a",  "i",  "u",  "e",  "o",
     "ka", "ki", "ku", "ke", "ko",
     "sa", "si", "su", "se", "so",
@@ -57,9 +82,29 @@ syllables = [
     "n"
 ]
 
+syllables = [
+    "a",  "i",   "u",   "e",  "o",
+    "ka", "ki",  "ku",  "ke", "ko",
+    "sa", "shi", "su",  "se", "so",
+    "ta", "chi", "tsu", "te", "to",
+    "na", "ni",  "nu",  "ne", "no",
+    "ha", "hi",  "fu",  "he", "ho",
+    "ma", "mi",  "mu",  "me", "mo",
+    "ya", "yu",  "yo",
+    "ra", "ri",  "ru", "re", "ro",
+    "wa",                    "wo",
+    "n"
+]
+
 
 def treat_args(args):
     global syllables
+    global combination_dakuten_handakuten_syllables
+    if args.literal:
+        syllables = literal_syllables
+        combination_syllables = literal_combination_syllables
+        dakuten_handakuten_syllables = literal_dakuten_handakuten_syllables
+        combination_dakuten_handakuten_syllables = literal_combination_dakuten_handakuten_syllables
     if args.dakuten:
         syllables.extend(dakuten_handakuten_syllables)
         combination_syllables.extend(combination_dakuten_handakuten_syllables)
@@ -72,7 +117,7 @@ def treat_args(args):
         syllables.extend(sokuon_syllables)
     if args.uppercase:
         syllables = [syllable.upper() for syllable in syllables]
-    if type(args.size) == 'list':
+    if type(args.size) is list:
         args.size = args.size[0]
     if args.space:
         return ' '
@@ -89,11 +134,12 @@ def generate_random_word(space):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--dakuten", help="include syllables with dakuten (゛) and handakuten (゜)", action='store_true')
-    parser.add_argument("-w", "--wiwe", help="include wi (ゐ) and we (ゑ) syllables", action='store_true')
+    parser.add_argument("-w", "--wiwe", help="include wi (ゐ | ヰ) and we (ゑ | ヱ) syllables", action='store_true')
     parser.add_argument("-u", "--uppercase", help="capitalize the syllables", action='store_true')
     parser.add_argument("-a", "--space", help="add space between syllables", action='store_true')
-    parser.add_argument("-s", "--sokuon", help="include letters to represent sokuons (っ)", action='store_true')
-    parser.add_argument("-y", "--youon", help="include combinations with 'ya' (ゃ), 'yu' (ゅ) and 'yo' (ょ)", action='store_true')
+    parser.add_argument("-s", "--sokuon", help="include letters to represent sokuons (っ | ッ)", action='store_true')
+    parser.add_argument("-y", "--youon", help="include combinations with 'ya' (ゃ | ャ), 'yu' (ゅ | ュ) and 'yo' (ょ | ョ)", action='store_true')
+    parser.add_argument("-l", "--literal", help="ignore the way the syllable is pronounced (for example, tsu become tu, and chi become ti). this removes the ambiguity between di and zi, for example", action='store_true')
     parser.add_argument("-n", "--size", help="number of syllables per word", type=int, metavar="SIZE", default=5, action='store', nargs=1)
     args = parser.parse_args()
 
