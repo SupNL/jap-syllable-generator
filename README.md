@@ -7,15 +7,6 @@
 ## Dependencies
 
 * Python 3 or higher
-* argparse lib
-
-argparse can be installed using pip:
-
-    // for windows users
-    pip install argparse
-
-    // for linux users
-    pip3 install argparse
 
 ---
 
@@ -57,13 +48,15 @@ Directly from the console:
       -a, --space           add space between syllables
       -s, --sokuon          include letters to represent sokuons (っ)
       -y, --youon           include combinations with 'ya' (ゃ), 'yu' (ゅ) and 'yo' (ょ)
+      -l, --literal         ignore the way the syllable is pronunciated (for
+                        example, tsu become tu, and chi become ti)
       -n SIZE, --size SIZE  number of syllables per word
 
 ## Include Dakuten and Handakuten
 
 Arguments: -d or --dakuten
 
-Include syllabes that represent kanas with dakuten (゛) and handakuten (゜).
+Include syllables that represent kanas with dakuten (゛) and handakuten (゜).
 
 ## Include Wi and We syllables
 
@@ -99,4 +92,4 @@ Add syllables to represent the yōon (kana that is combined with ゃ, ゅ and �
 
 Arguments: -n SIZE or --size SIZE, where SIZE is the number
 
-Number of syllables to be added on a word
+Number of syllables to be added on a word.
