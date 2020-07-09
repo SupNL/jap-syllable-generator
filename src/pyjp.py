@@ -99,6 +99,8 @@ syllables = [
 
 def treat_args(args):
     global syllables
+    global combination_syllables
+    global dakuten_handakuten_syllables
     global combination_dakuten_handakuten_syllables
     if args.literal:
         syllables = literal_syllables
