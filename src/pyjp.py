@@ -135,12 +135,12 @@ def generate_random_word(space):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("-d", "--dakuten", help="include syllables with dakuten (゛) and handakuten (゜)", action='store_true')
-    parser.add_argument("-w", "--wiwe", help="include wi (ゐ | ヰ) and we (ゑ | ヱ) syllables", action='store_true')
+    parser.add_argument("-d", "--dakuten", help="include syllables with dakuten and handakuten", action='store_true')
+    parser.add_argument("-w", "--wiwe", help="include wi and we syllables", action='store_true')
     parser.add_argument("-u", "--uppercase", help="capitalize the syllables", action='store_true')
     parser.add_argument("-a", "--space", help="add space between syllables", action='store_true')
-    parser.add_argument("-s", "--sokuon", help="include letters to represent sokuons (っ | ッ)", action='store_true')
-    parser.add_argument("-y", "--youon", help="include combinations with 'ya' (ゃ | ャ), 'yu' (ゅ | ュ) and 'yo' (ょ | ョ)", action='store_true')
+    parser.add_argument("-s", "--sokuon", help="include letters to represent sokuons", action='store_true')
+    parser.add_argument("-y", "--youon", help="include combinations with 'ya', 'yu' and 'yo'", action='store_true')
     parser.add_argument("-l", "--literal", help="ignore the way the syllable is pronounced (for example, tsu become tu, and chi become ti). this removes the ambiguity between di and zi, for example", action='store_true')
     parser.add_argument("-n", "--size", help="number of syllables per word", type=int, metavar="SIZE", default=5, action='store', nargs=1)
     args = parser.parse_args()
