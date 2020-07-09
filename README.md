@@ -76,7 +76,7 @@ Arguments: -a or --space
 
 Add space between syllables.
 
-## Include Sokuons
+## Include Sokuon
 
 Arguments: -s or --sokuon
 
