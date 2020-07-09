@@ -38,19 +38,20 @@ It should display a random word, like below:
 
 Directly from the console:
 
-    usage: pyjp.py [-h] [-d] [-w] [-u] [-a] [-s] [-y] [-n SIZE]
+    usage: pyjp.py [-h] [-d] [-w] [-u] [-a] [-s] [-y] [-l] [-n SIZE]
 
-    optional arguments:  
-      -h, --help            show this help message and exit  
-      -d, --dakuten         include syllables with dakuten (゛) and handakuten (゜)
-      -w, --wiwe            include wi (ゐ) and we (ゑ) syllables
-      -u, --uppercase       capitalize the syllables
-      -a, --space           add space between syllables
-      -s, --sokuon          include letters to represent sokuons (っ)
-      -y, --youon           include combinations with 'ya' (ゃ), 'yu' (ゅ) and 'yo' (ょ)
-      -l, --literal         ignore the way the syllable is pronunciated (for
-                        example, tsu become tu, and chi become ti)
-      -n SIZE, --size SIZE  number of syllables per word
+    optional arguments:
+    -h, --help            show this help message and exit
+    -d, --dakuten         include syllables with dakuten and handakuten
+    -w, --wiwe            include wi and we syllables
+    -u, --uppercase       capitalize the syllables
+    -a, --space           add space between syllables
+    -s, --sokuon          include letters to represent sokuons
+    -y, --youon           include combinations with 'ya', 'yu' and 'yo'
+    -l, --literal         ignore the way the syllable is pronounced (for
+                            example, tsu become tu, and chi become ti). this
+                            removes the ambiguity between di and zi, for example
+    -n SIZE, --size SIZE  number of syllables per word
 
 ## Include Dakuten and Handakuten
 
