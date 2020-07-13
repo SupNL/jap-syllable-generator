@@ -23,10 +23,16 @@ dakuten_handakuten_syllables = [
     "pa", "pi", "pu", "pe", "po"
 ]
 
-sokuon_syllables = [
+literal_sokuon_syllables = [
     "kka", "kki", "kku", "kke", "kko",
     "ssa", "ssi", "ssu", "sse", "sso",
     "tta", "tti", "ttu", "tte", "tto"
+]
+
+sokuon_syllables = [
+    "kka", "kki", "kku", "kke", "kko",
+    "ssa", "sshi", "ssu", "sse", "sso",
+    "tta", "cchi", "ttsu", "tte", "tto"
 ]
 
 sokuon_dakuten_handakuten_syllables = [
@@ -102,11 +108,13 @@ def treat_args(args):
     global combination_syllables
     global dakuten_handakuten_syllables
     global combination_dakuten_handakuten_syllables
+    global sokuon_syllables
     if args.literal:
         syllables = literal_syllables
         combination_syllables = literal_combination_syllables
         dakuten_handakuten_syllables = literal_dakuten_handakuten_syllables
         combination_dakuten_handakuten_syllables = literal_combination_dakuten_handakuten_syllables
+        sokuon_syllables = literal_sokuon_syllables
     if args.dakuten:
         syllables.extend(dakuten_handakuten_syllables)
         combination_syllables.extend(combination_dakuten_handakuten_syllables)
