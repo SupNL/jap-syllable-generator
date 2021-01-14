@@ -102,6 +102,8 @@ syllables = [
     "n"
 ]
 
+complete_sokuons = sokuon_syllables + literal_sokuon_syllables + sokuon_dakuten_handakuten_syllables
+
 
 def treat_args(args):
     global syllables
@@ -135,8 +137,11 @@ def treat_args(args):
 
 
 def generate_random_word(space):
-    for _ in range(args.size):
-        print(random.choice(syllables), end='')
+    for i, _ in enumerate(range(args.size)):
+        syllable = random.choice(syllables)
+        while i == 0 and syllable.lower() in complete_sokuons:
+            syllable = random.choice(syllables)
+        print(syllable, end='')
         print(space, end='')
     print(end='\n\n')
     
