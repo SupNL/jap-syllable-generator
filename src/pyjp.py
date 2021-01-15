@@ -139,7 +139,7 @@ def treat_args(args):
 def generate_random_word(space):
     for i, _ in enumerate(range(args.size)):
         syllable = random.choice(syllables)
-        while i == 0 and syllable.lower() in complete_sokuons and syllable.lower() == 'n':
+        while i == 0 and (syllable.lower() in complete_sokuons or syllable.lower() == 'n'):
             syllable = random.choice(syllables)
         print(syllable, end='')
         print(space, end='')
